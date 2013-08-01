@@ -18,13 +18,17 @@ namespace Repeater
         {
             InitializeComponent();
         }
-
         private void KeyboardInput_Click(object sender, EventArgs e)
         {
-            KeyBoardInputBox keyInput = new KeyBoardInputBox();
-            Instructions.Items.Add("키보드");
-            keyInput.ShowDialog();
+            KeyBoardInputForm keyInputForm = new KeyBoardInputForm();
+            keyInputForm.KeyInputEvent += new KeyBoardInputForm.KeyInputHandler(keyInputForm_KeyInputEvent);
+            keyInputForm.ShowDialog();
             isModified = true;
+        }
+
+        void keyInputForm_KeyInputEvent(String text)
+        {
+            Instructions.Items.Add(text);
         }
 
         private void MouseInput_Click(object sender, EventArgs e)

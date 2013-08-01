@@ -144,20 +144,20 @@
             // NewMacroMenuItem
             // 
             this.NewMacroMenuItem.Name = "NewMacroMenuItem";
-            this.NewMacroMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.NewMacroMenuItem.Size = new System.Drawing.Size(126, 22);
             this.NewMacroMenuItem.Text = "새 매크로";
             this.NewMacroMenuItem.Click += new System.EventHandler(this.NewMacroMenuItem_Click);
             // 
             // 불러오기ToolStripMenuItem
             // 
             this.불러오기ToolStripMenuItem.Name = "불러오기ToolStripMenuItem";
-            this.불러오기ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.불러오기ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.불러오기ToolStripMenuItem.Text = "불러오기";
             // 
             // 저장ToolStripMenuItem
             // 
             this.저장ToolStripMenuItem.Name = "저장ToolStripMenuItem";
-            this.저장ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.저장ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.저장ToolStripMenuItem.Text = "저장";
             // 
             // 도움말ToolStripMenuItem
@@ -171,7 +171,7 @@
             // ManualMenuItem
             // 
             this.ManualMenuItem.Name = "ManualMenuItem";
-            this.ManualMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ManualMenuItem.Size = new System.Drawing.Size(110, 22);
             this.ManualMenuItem.Text = "사용법";
             this.ManualMenuItem.Click += new System.EventHandler(this.ManualMenuItem_Click);
             // 
@@ -190,7 +190,7 @@
             this.Controls.Add(this.KeyboardInput);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Repeater";
-            this.Text = "Form1";
+            this.Text = "Repeater";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

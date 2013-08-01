@@ -1,6 +1,6 @@
 ﻿namespace Repeater
 {
-    partial class KeyBoardInputBox
+    partial class KeyBoardInputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,8 +49,10 @@
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(75, 23);
             this.OK.TabIndex = 2;
+            this.OK.TabStop = false;
             this.OK.Text = "확인";
             this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
             // Cancle
             // 
@@ -58,8 +60,10 @@
             this.Cancle.Name = "Cancle";
             this.Cancle.Size = new System.Drawing.Size(75, 23);
             this.Cancle.TabIndex = 3;
+            this.Cancle.TabStop = false;
             this.Cancle.Text = "취소";
             this.Cancle.UseVisualStyleBackColor = true;
+            this.Cancle.Click += new System.EventHandler(this.Cancle_Click);
             // 
             // InputKey
             // 
@@ -68,9 +72,9 @@
             this.InputKey.Name = "InputKey";
             this.InputKey.Size = new System.Drawing.Size(100, 21);
             this.InputKey.TabIndex = 4;
-            this.InputKey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InputKey_KeyDown);
+            this.InputKey.TabStop = false;
             // 
-            // KeyBoardInputBox
+            // KeyBoardInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -79,9 +83,10 @@
             this.Controls.Add(this.Cancle);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.label1);
-            this.Name = "KeyBoardInputBox";
+            this.Name = "KeyBoardInputForm";
             this.Text = "KeyBoardInputBox";
             this.Shown += new System.EventHandler(this.KeyBoardInputBox_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyBoardInputBox_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
