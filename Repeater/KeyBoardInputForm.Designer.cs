@@ -83,9 +83,9 @@
             this.Controls.Add(this.Cancle);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "KeyBoardInputForm";
             this.Text = "KeyBoardInputBox";
-            this.Shown += new System.EventHandler(this.KeyBoardInputBox_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyBoardInputBox_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

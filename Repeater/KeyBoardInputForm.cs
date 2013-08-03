@@ -20,12 +20,6 @@ namespace Repeater
             InitializeComponent();
         }
 
-        private void KeyBoardInputBox_Shown(object sender, EventArgs e)
-        {
-            this.Activate();
-            this.Focus();
-        }
-
         private void KeyBoardInputBox_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -56,9 +50,11 @@ namespace Repeater
                 case Keys.D8:
                 case Keys.D9:
                     InputKey.Text = e.KeyCode.ToString()[1].ToString();
+                    this.Focus();
                     break;
                 default:
                     InputKey.Text = e.KeyCode.ToString();
+                    this.Focus();
                     break;
             }
         }

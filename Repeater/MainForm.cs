@@ -18,6 +18,7 @@ namespace Repeater
         {
             InitializeComponent();
         }
+
         private void KeyboardInput_Click(object sender, EventArgs e)
         {
             KeyBoardInputForm keyInputForm = new KeyBoardInputForm();
@@ -33,8 +34,15 @@ namespace Repeater
 
         private void MouseInput_Click(object sender, EventArgs e)
         {
+            MouseInputForm mouseInputForm = new MouseInputForm();
+            mouseInputForm.ShowDialog();
             Instructions.Items.Add("마우스");
             isModified = true;
+        }
+
+        void mouseInputForm_MouseInputEvent(int X, int Y, String behavior)
+        {
+            Instructions.Items.Add("1");
         }
 
         private void Delay_Click(object sender, EventArgs e)
