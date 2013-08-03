@@ -34,11 +34,15 @@
             this.pos_Y = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.CheckBox_MOVE = new System.Windows.Forms.CheckBox();
             this.OK = new System.Windows.Forms.Button();
             this.Cancle = new System.Windows.Forms.Button();
-            this.CheckBox_LEFTCLICK = new System.Windows.Forms.CheckBox();
-            this.CheckBox_RIGHTCLICK = new System.Windows.Forms.CheckBox();
+            this.MoveRadioButton = new System.Windows.Forms.RadioButton();
+            this.LeftClickRadioButton = new System.Windows.Forms.RadioButton();
+            this.RightClickRadioButton = new System.Windows.Forms.RadioButton();
+            this.LeftDownRadioButton = new System.Windows.Forms.RadioButton();
+            this.LeftUpRadioButton = new System.Windows.Forms.RadioButton();
+            this.RightDownRadioButton = new System.Windows.Forms.RadioButton();
+            this.RightUpRadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label1
@@ -93,16 +97,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "포커스를 TextBox 외의 부분에 두고 사용하십시오";
             // 
-            // CheckBox_MOVE
-            // 
-            this.CheckBox_MOVE.AutoSize = true;
-            this.CheckBox_MOVE.Location = new System.Drawing.Point(49, 124);
-            this.CheckBox_MOVE.Name = "CheckBox_MOVE";
-            this.CheckBox_MOVE.Size = new System.Drawing.Size(48, 16);
-            this.CheckBox_MOVE.TabIndex = 7;
-            this.CheckBox_MOVE.Text = "이동";
-            this.CheckBox_MOVE.UseVisualStyleBackColor = true;
-            // 
             // OK
             // 
             this.OK.Location = new System.Drawing.Point(58, 249);
@@ -111,6 +105,7 @@
             this.OK.TabIndex = 8;
             this.OK.Text = "확인";
             this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
             // Cancle
             // 
@@ -120,43 +115,106 @@
             this.Cancle.TabIndex = 9;
             this.Cancle.Text = "취소";
             this.Cancle.UseVisualStyleBackColor = true;
+            this.Cancle.Click += new System.EventHandler(this.Cancle_Click);
             // 
-            // CheckBox_LEFTCLICK
+            // MoveRadioButton
             // 
-            this.CheckBox_LEFTCLICK.AutoSize = true;
-            this.CheckBox_LEFTCLICK.Location = new System.Drawing.Point(49, 146);
-            this.CheckBox_LEFTCLICK.Name = "CheckBox_LEFTCLICK";
-            this.CheckBox_LEFTCLICK.Size = new System.Drawing.Size(76, 16);
-            this.CheckBox_LEFTCLICK.TabIndex = 10;
-            this.CheckBox_LEFTCLICK.Text = "왼쪽 클릭";
-            this.CheckBox_LEFTCLICK.UseVisualStyleBackColor = true;
+            this.MoveRadioButton.AutoSize = true;
+            this.MoveRadioButton.Location = new System.Drawing.Point(41, 129);
+            this.MoveRadioButton.Name = "MoveRadioButton";
+            this.MoveRadioButton.Size = new System.Drawing.Size(47, 16);
+            this.MoveRadioButton.TabIndex = 10;
+            this.MoveRadioButton.TabStop = true;
+            this.MoveRadioButton.Text = "이동";
+            this.MoveRadioButton.UseVisualStyleBackColor = true;
             // 
-            // CheckBox_RIGHTCLICK
+            // LeftClickRadioButton
             // 
-            this.CheckBox_RIGHTCLICK.AutoSize = true;
-            this.CheckBox_RIGHTCLICK.Location = new System.Drawing.Point(49, 168);
-            this.CheckBox_RIGHTCLICK.Name = "CheckBox_RIGHTCLICK";
-            this.CheckBox_RIGHTCLICK.Size = new System.Drawing.Size(88, 16);
-            this.CheckBox_RIGHTCLICK.TabIndex = 11;
-            this.CheckBox_RIGHTCLICK.Text = "오른쪽 클릭";
-            this.CheckBox_RIGHTCLICK.UseVisualStyleBackColor = true;
+            this.LeftClickRadioButton.AutoSize = true;
+            this.LeftClickRadioButton.Location = new System.Drawing.Point(41, 151);
+            this.LeftClickRadioButton.Name = "LeftClickRadioButton";
+            this.LeftClickRadioButton.Size = new System.Drawing.Size(75, 16);
+            this.LeftClickRadioButton.TabIndex = 11;
+            this.LeftClickRadioButton.TabStop = true;
+            this.LeftClickRadioButton.Text = "왼쪽 클릭";
+            this.LeftClickRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // RightClickRadioButton
+            // 
+            this.RightClickRadioButton.AutoSize = true;
+            this.RightClickRadioButton.Location = new System.Drawing.Point(41, 173);
+            this.RightClickRadioButton.Name = "RightClickRadioButton";
+            this.RightClickRadioButton.Size = new System.Drawing.Size(87, 16);
+            this.RightClickRadioButton.TabIndex = 12;
+            this.RightClickRadioButton.TabStop = true;
+            this.RightClickRadioButton.Text = "오른쪽 클릭";
+            this.RightClickRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // LeftDownRadioButton
+            // 
+            this.LeftDownRadioButton.AutoSize = true;
+            this.LeftDownRadioButton.Location = new System.Drawing.Point(141, 129);
+            this.LeftDownRadioButton.Name = "LeftDownRadioButton";
+            this.LeftDownRadioButton.Size = new System.Drawing.Size(87, 16);
+            this.LeftDownRadioButton.TabIndex = 13;
+            this.LeftDownRadioButton.TabStop = true;
+            this.LeftDownRadioButton.Text = "왼쪽 누르기";
+            this.LeftDownRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // LeftUpRadioButton
+            // 
+            this.LeftUpRadioButton.AutoSize = true;
+            this.LeftUpRadioButton.Location = new System.Drawing.Point(141, 151);
+            this.LeftUpRadioButton.Name = "LeftUpRadioButton";
+            this.LeftUpRadioButton.Size = new System.Drawing.Size(75, 16);
+            this.LeftUpRadioButton.TabIndex = 14;
+            this.LeftUpRadioButton.TabStop = true;
+            this.LeftUpRadioButton.Text = "왼쪽 떼기";
+            this.LeftUpRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // RightDownRadioButton
+            // 
+            this.RightDownRadioButton.AutoSize = true;
+            this.RightDownRadioButton.Location = new System.Drawing.Point(141, 174);
+            this.RightDownRadioButton.Name = "RightDownRadioButton";
+            this.RightDownRadioButton.Size = new System.Drawing.Size(99, 16);
+            this.RightDownRadioButton.TabIndex = 15;
+            this.RightDownRadioButton.TabStop = true;
+            this.RightDownRadioButton.Text = "오른쪽 누르기";
+            this.RightDownRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // RightUpRadioButton
+            // 
+            this.RightUpRadioButton.AutoSize = true;
+            this.RightUpRadioButton.Location = new System.Drawing.Point(141, 196);
+            this.RightUpRadioButton.Name = "RightUpRadioButton";
+            this.RightUpRadioButton.Size = new System.Drawing.Size(87, 16);
+            this.RightUpRadioButton.TabIndex = 16;
+            this.RightUpRadioButton.TabStop = true;
+            this.RightUpRadioButton.Text = "오른쪽 떼기";
+            this.RightUpRadioButton.UseVisualStyleBackColor = true;
             // 
             // MouseInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 284);
-            this.Controls.Add(this.CheckBox_RIGHTCLICK);
-            this.Controls.Add(this.CheckBox_LEFTCLICK);
+            this.Controls.Add(this.RightUpRadioButton);
+            this.Controls.Add(this.RightDownRadioButton);
+            this.Controls.Add(this.LeftUpRadioButton);
+            this.Controls.Add(this.LeftDownRadioButton);
+            this.Controls.Add(this.RightClickRadioButton);
+            this.Controls.Add(this.LeftClickRadioButton);
+            this.Controls.Add(this.MoveRadioButton);
             this.Controls.Add(this.Cancle);
             this.Controls.Add(this.OK);
-            this.Controls.Add(this.CheckBox_MOVE);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pos_Y);
             this.Controls.Add(this.pos_X);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "MouseInputForm";
             this.Text = "MouseInputForm";
             this.Load += new System.EventHandler(this.MouseInputForm_Load);
@@ -174,10 +232,14 @@
         private System.Windows.Forms.TextBox pos_Y;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox CheckBox_MOVE;
         private System.Windows.Forms.Button OK;
         private System.Windows.Forms.Button Cancle;
-        private System.Windows.Forms.CheckBox CheckBox_LEFTCLICK;
-        private System.Windows.Forms.CheckBox CheckBox_RIGHTCLICK;
+        private System.Windows.Forms.RadioButton MoveRadioButton;
+        private System.Windows.Forms.RadioButton LeftClickRadioButton;
+        private System.Windows.Forms.RadioButton RightClickRadioButton;
+        private System.Windows.Forms.RadioButton LeftDownRadioButton;
+        private System.Windows.Forms.RadioButton LeftUpRadioButton;
+        private System.Windows.Forms.RadioButton RightDownRadioButton;
+        private System.Windows.Forms.RadioButton RightUpRadioButton;
     }
 }

@@ -35,22 +35,31 @@ namespace Repeater
         private void MouseInput_Click(object sender, EventArgs e)
         {
             MouseInputForm mouseInputForm = new MouseInputForm();
+            mouseInputForm.MouseInputEvent += new MouseInputForm.MouseInputHandler(mouseInputForm_MouseInputEvent);
             mouseInputForm.ShowDialog();
-            Instructions.Items.Add("마우스");
             isModified = true;
         }
 
         void mouseInputForm_MouseInputEvent(int X, int Y, String behavior)
         {
-            Instructions.Items.Add("1");
+            if(behavior=="이동")
+                Instructions.Items.Add(X.ToString() + "," + Y.ToString() + " " + behavior);
+            else
+                Instructions.Items.Add(behavior);
         }
 
         private void Delay_Click(object sender, EventArgs e)
         {
-            Instructions.Items.Add("딜레이");
+            DelayInputForm delayInputForm = new DelayInputForm();
+            delayInputForm.DelayInputEvent += new DelayInputForm.DelayInputHandler(delayInputForm_DelayInputEvent);
+            delayInputForm.ShowDialog();
             isModified = true;
         }
 
+        void delayInputForm_DelayInputEvent(uint miliseconds)
+        {
+            Instructions.Items.Add(miliseconds.ToString() + "ms 대기");
+        }
         private void Delete_Click(object sender, EventArgs e)
         {
             try
