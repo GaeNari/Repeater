@@ -34,7 +34,7 @@
             this.Delete = new System.Windows.Forms.Button();
             this.Instructions = new System.Windows.Forms.ListBox();
             this.Start = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.RepeatTimes = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.asdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,13 +103,14 @@
             this.Start.TabIndex = 5;
             this.Start.Text = "시작";
             this.Start.UseVisualStyleBackColor = true;
+            this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
-            // textBox1
+            // RepeatTimes
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 285);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(63, 21);
-            this.textBox1.TabIndex = 6;
+            this.RepeatTimes.Location = new System.Drawing.Point(100, 285);
+            this.RepeatTimes.Name = "RepeatTimes";
+            this.RepeatTimes.Size = new System.Drawing.Size(63, 21);
+            this.RepeatTimes.TabIndex = 6;
             // 
             // label1
             // 
@@ -181,7 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(313, 322);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.RepeatTimes);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.Instructions);
             this.Controls.Add(this.Delete);
@@ -206,7 +207,7 @@
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.ListBox Instructions;
         private System.Windows.Forms.Button Start;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox RepeatTimes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem asdfToolStripMenuItem;

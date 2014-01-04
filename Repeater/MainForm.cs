@@ -94,5 +94,20 @@ namespace Repeater
         {
             MessageBox.Show("반복할 매크로 작업을 해당 버튼을 눌러서 만든 후에 반복 횟수를 입력하고 시작 버튼을 누르면 2초 후 매크로가 시작됩니다.");
         }
+
+        private void Start_Click(object sender, EventArgs e)
+        {
+            int n = Instructions.Items.Count;
+            Instructions.SelectedIndex = -1;
+            if (n != 0)
+            {
+                while (n-- > 0)
+                {
+                    Instructions.SelectedIndex++;
+                    String todo = Instructions.SelectedItem.ToString();
+                    MessageBox.Show(todo);
+                }
+            }
+        }
     }
 }
