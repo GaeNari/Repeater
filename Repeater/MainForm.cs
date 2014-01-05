@@ -29,7 +29,7 @@ namespace Repeater
 
         void keyInputForm_KeyInputEvent(String text)
         {
-            Instructions.Items.Add(text);
+            Instructions.Items.Add("키보드 " + text);
         }
 
         private void MouseInput_Click(object sender, EventArgs e)
@@ -43,9 +43,9 @@ namespace Repeater
         void mouseInputForm_MouseInputEvent(int X, int Y, String behavior)
         {
             if(behavior=="이동")
-                Instructions.Items.Add(X.ToString() + "," + Y.ToString() + " " + behavior);
+                Instructions.Items.Add("마우스 " + behavior + " " + X.ToString() + "," + Y.ToString());
             else
-                Instructions.Items.Add(behavior);
+                Instructions.Items.Add("마우스 " + behavior);
         }
 
         private void Delay_Click(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace Repeater
 
         void delayInputForm_DelayInputEvent(uint miliseconds)
         {
-            Instructions.Items.Add(miliseconds.ToString() + "ms 대기");
+            Instructions.Items.Add("대기 " + miliseconds.ToString());
         }
         private void Delete_Click(object sender, EventArgs e)
         {
