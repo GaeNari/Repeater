@@ -58,7 +58,7 @@ namespace Repeater
 
         void delayInputForm_DelayInputEvent(uint miliseconds)
         {
-            Instructions.Items.Add("대기 " + miliseconds.ToString());
+            Instructions.Items.Add("딜레이 " + miliseconds.ToString());
         }
         private void Delete_Click(object sender, EventArgs e)
         {
@@ -101,11 +101,29 @@ namespace Repeater
             Instructions.SelectedIndex = -1;
             if (n != 0)
             {
+                System.Threading.Thread.Sleep(2000);
                 while (n-- > 0)
                 {
                     Instructions.SelectedIndex++;
-                    String todo = Instructions.SelectedItem.ToString();
-                    MessageBox.Show(todo);
+                    String instructionType = Instructions.SelectedItem.ToString().Substring(0,3);
+                    String instructionContent = Instructions.SelectedItem.ToString().Substring(4);
+                    switch (instructionType)
+                    {
+                        case "키보드":
+                            MessageBox.Show("키보드");
+                            MessageBox.Show(instructionContent);
+                            break;
+                        case "마우스":
+                            MessageBox.Show("마우스");
+                            MessageBox.Show(instructionContent);
+                            break;
+                        case "딜레이":
+                            MessageBox.Show("딜레이");
+                            MessageBox.Show(instructionContent);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
