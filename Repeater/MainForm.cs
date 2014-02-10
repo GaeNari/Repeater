@@ -7,16 +7,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Repeater
 {
     public partial class Repeater : Form
     {
+        [DllImport("user32.dll")]
+        static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, int dwExtraInfo);
+
+        private const uint ABSOLUTE = 0x8000;
+        private const uint MOUSEMOVE = 0x0001;
+        private const uint LBUTTONDOWN = 0x0002;
+        private const uint LBUTTONUP = 0x0004;
+        private const uint RBUTTONDOWN = 0x0008;
+        private const uint RBUTTONUP = 0x0010;
+
         bool isModified = false;
 
         public Repeater()
         {
             InitializeComponent();
+        }
+
+        private void LClick(Point pos)
+        {
+            mouse_event(LBUTTONDOWN, 0, 0, 0, 0);
+            mouse_event(LBUTTONUP, 0, 0, 0, 0);
+        }
+
+        private void RClick(Point pos)
+        {
+            mouse_event(RBUTTONDOWN, 0, 0, 0, 0);
+            mouse_event(RBUTTONUP, 0, 0, 0, 0);
         }
 
         private void KeyboardInput_Click(object sender, EventArgs e)
@@ -110,8 +133,14 @@ namespace Repeater
                     switch (instructionType)
                     {
                         case "키보드":
-                            MessageBox.Show("키보드");
-                            MessageBox.Show(instructionContent);
+                            if (instructionContent.Length != 1)
+                            {
+                                SendKeys.Send("{" + instructionContent + "}");
+                            }
+                            else
+                            {
+                                SendKeys.Send(instructionContent);
+                            }
                             break;
                         case "마우스":
                             MessageBox.Show("마우스");
@@ -124,6 +153,7 @@ namespace Repeater
                         default:
                             break;
                     }
+                    System.Threading.Thread.Sleep(100);
                 }
             }
         }
