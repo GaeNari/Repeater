@@ -44,7 +44,9 @@ namespace Repeater
 
         private void KeyboardInput_Click(object sender, EventArgs e)
         {
-            KeyBoardInputForm keyInputForm = new KeyBoardInputForm();
+            int locationY = (this.Top + this.Bottom) / 2;
+            int locationX = (this.Left + this.Right) / 2;
+            KeyBoardInputForm keyInputForm = new KeyBoardInputForm{StartPosition = FormStartPosition.Manual, Location = new Point(locationX,locationY)};
             keyInputForm.KeyInputEvent += new KeyBoardInputForm.KeyInputHandler(keyInputForm_KeyInputEvent);
             keyInputForm.ShowDialog();
             isModified = true;
@@ -57,7 +59,9 @@ namespace Repeater
 
         private void MouseInput_Click(object sender, EventArgs e)
         {
-            MouseInputForm mouseInputForm = new MouseInputForm();
+            int locationY = (this.Top + this.Bottom) / 2;
+            int locationX = (this.Left + this.Right) / 2;
+            MouseInputForm mouseInputForm = new MouseInputForm { StartPosition = FormStartPosition.Manual, Location = new Point(locationX, locationY) };
             mouseInputForm.MouseInputEvent += new MouseInputForm.MouseInputHandler(mouseInputForm_MouseInputEvent);
             mouseInputForm.ShowDialog();
             isModified = true;
@@ -73,7 +77,9 @@ namespace Repeater
 
         private void Delay_Click(object sender, EventArgs e)
         {
-            DelayInputForm delayInputForm = new DelayInputForm();
+            int locationY = (this.Top + this.Bottom) / 2;
+            int locationX = (this.Left + this.Right) / 2;
+            DelayInputForm delayInputForm = new DelayInputForm { StartPosition = FormStartPosition.Manual, Location = new Point(locationX, locationY) };
             delayInputForm.DelayInputEvent += new DelayInputForm.DelayInputHandler(delayInputForm_DelayInputEvent);
             delayInputForm.ShowDialog();
             isModified = true;
